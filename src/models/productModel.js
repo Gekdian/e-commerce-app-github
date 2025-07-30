@@ -25,6 +25,15 @@ const ProductModel = {
         return result.affectedRows;
     },
 
+        updateStock: async (id, stock) => {
+        const [result] = await pool.execute(
+            'UPDATE products SET stock = ? WHERE id = ?',
+            [stock, id]
+        );
+        return result.affectedRows;
+    },
+
+
     delete: async (id) => {
         const [result] = await pool.execute(
             'DELETE FROM products WHERE id = ?',

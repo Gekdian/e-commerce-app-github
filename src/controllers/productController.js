@@ -43,6 +43,22 @@ const ProductController = {
         }
     },
 
+        updateStock: async (req, res) => {
+        const { id } = req.params;
+        const { stock } = req.body;
+        try {
+            const affectedRows = await ProductModel.updateStock(id, stock);
+            if (affectedRows === 0) {
+                return res.status(404).json({ message: 'Product not found or no changes made' });
+            }
+            res.status(200).json({ message: 'Product stock updated successfully' });
+        } catch (error) {
+            console.error('Error updating product:', error);
+            res.status(500).json({ message: 'Error updating product' });
+        }
+    },
+
+
     deleteProduct: async (req, res) => {
         const { id } = req.params;
         try {
