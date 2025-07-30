@@ -3,9 +3,12 @@ const express = require('express');
 const app = express();
 const userRoutes = require('./routes/userRoutes');
 const transactionRoutes = require('./routes/transactionRoutes');
+const productRoutes = require('./routes/productRoutes');
 app.use(express.json()); // Middleware untuk parsing JSON body
 app.use('/api/users', userRoutes);
 app.use('/api/transactions', transactionRoutes);
+app.use('/api/products', productRoutes);
+
 
 
 // Rute untuk setiap modul
