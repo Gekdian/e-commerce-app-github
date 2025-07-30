@@ -2,10 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const userRoutes = require('./routes/userRoutes');
-const customerRoutes = require('./routes/customerRoutes');
-app.use(express.json()); // Middleware untuk parsing JSON body
-app.use('/api/users', userRoutes);
-app.use('/api/customers', customerRoutes);
 
 
 // Rute untuk setiap modul
